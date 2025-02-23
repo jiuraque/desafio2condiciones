@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafío 2 - Condiciones</title>
+  </head>
+  <body>
+
+    <!-- Ejercicio n1 -->
+    <h2>Ejercicio 1 - La imagen con bordes de color</h2>
+    <details>
+      <summary>Solución:</summary>
+      <img
+        id="imagen"
+        width="250px"
+        height="auto"
+        src="./assets/imgs/imagen_borde.jpg"
+        alt="perrito blanco en la nieve"
+        onclick="
+    let img = document.getElementById('imagen');
+
+    if (img.style.border){
+        img.style.border = ''
+    } else {
+        img.style.border = '2px solid purple'
+    }
+    "
+      />
+    </details>
+
+    <!-- Ejercicio n2 -->
+    <h2>Ejercicio 2 - Los 10 stickers</h2>
+    <details>
+      <summary>Solución:</summary>
+      <p>OJO - puedes llevar hasta 10 stickers en total</p>
+      <div>
+        <div>
+          <img
+            class="img"
+            width="180px"
+            height="auto"
+            src="./assets/imgs/shopify.jpg"
+            alt="logo de Shopify"
+          />
+          <br />
+          <input type="number" id="shopify" />
+        </div>
+        <div>
+          <img
+            class="img"
+            width="180px"
+            height="auto"
+            src="./assets/imgs/youtube.jpg"
+            alt="logo de Youtube"
+          />
+          <br />
+          <input type="number" id="youtube" />
+        </div>
+        <div>
+          <img
+            class="img"
+            width="180px"
+            height="auto"
+            src="./assets/imgs/reddit.jpg"
+            alt="logo de Reddit"
+          />
+          <br />
+          <input type="number" id="reddit" />
+        </div>
+      </div>
+      <p id="cant-stickers"></p>
+      <button
+        onclick="
+let shopify = Number(document.getElementById('shopify').value);
+let youtube = Number(document.getElementById('youtube').value);
+let reddit = Number(document.getElementById('reddit').value);
+
+cantStickers = shopify + youtube + reddit;
+totalStickers = document.getElementById('cant-stickers');
+
+if (cantStickers <= 10){
+    totalStickers.innerText = 'Te llevas ' + cantStickers + ' stickers';
+    totalStickers.style.color = 'green';
+} else {
+    totalStickers.innerText = 'Te llevas demasiados stickers';
+    totalStickers.style.color = 'red';
+}
+
+"
+      >
+        Verificar
+      </button>
+    </details>
+
+    <!-- Ejercicio n3 -->
+
+    <h2>Ejercicio 3 - Contraseña</h2>
+    <details>
+      <summary>Solución:</summary>
+      <div>
+        <div>
+          <select id="digit-1">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </div>
+        <div>
+          <select id="digit-2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </div>
+        <div>
+          <select id="digit-3">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </div>
+      </div>
+      <p id="mensaje-alerta"></p>
+      <button
+        onclick="
+      let digit1 = document.querySelector('#digit-1').value;
+      let digit2 = document.querySelector('#digit-2').value;
+      let digit3 = document.querySelector('#digit-3').value;
+
+      let contraseña = digit1 + digit2 + digit3;
+
+      let mensaje = document.querySelector('#mensaje-alerta');
+
+      if (contraseña === '911'){
+        mensaje.innerText = 'Password 1 correcto';
+        mensaje.style.color = 'green';
+      } else if (contraseña === '714') {
+        mensaje.innerText = 'Password 2 correcto';
+        mensaje.style.color = 'green';
+      } else {
+        mensaje.innerText = 'Password incorrecto';
+        mensaje.style.color = 'red';
+      }
+    "
+      >
+        Ingresar
+      </button>
+    </details>
+
+  </body>
+</html>
